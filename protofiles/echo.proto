@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package protofiles;
+
+option go_package = "github.com/jns4u/grpc-gw-echo/protofiles";
+
+// import "google/api/annotations.proto";
+
+message StringMessage {
+ string value = 1;
+}
+
+service YourService {
+	rpc Echo(StringMessage) returns (StringMessage) {
+		// when using annotation method uncomment		
+		/**option (google.api.http) = {
+			post: "/v1/example/echo"
+			body: "*"
+		};**/
+  	}
+}
